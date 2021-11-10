@@ -1,0 +1,30 @@
+﻿@model AnimalEdicionModel
+<h3>Editar Animal</h3>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post" enctype="multipart/form-data" asp-controller="Animales" asp-action="Editar">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="ImagenUrl"/>
+                    <div class="form-group">
+                        <label asp-for="Nombre"></label>
+                        <input asp-for="Nombre" type="text" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <input asp-for="Imagen" class="form-control" type="file" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <img src="@Model.ImagenUrl" style="max-width:100%" />
+            </div>
+
+        </div>
+        
+    </div>
+</div>
